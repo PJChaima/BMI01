@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เครื่องคำนวณค่า BMI</title>
+  <!-- โหลดฟอนต์ภาษาไทย Prompt จาก Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- เชื่อมไฟล์ตกแต่ง (CSS) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h1>คำนวณค่า BMI</h1>
+    <p class="subtitle">ดัชนีมวลกาย (Body Mass Index)</p>
+
+    <!-- ช่องกรอกน้ำหนัก -->
+    <label for="weight">น้ำหนัก (กิโลกรัม)</label>
+    <input type="number" id="weight" placeholder="20 - 300 กก." min="20" max="300">
+
+    <!-- ช่องกรอกส่วนสูง -->
+    <label for="height">ส่วนสูง (เซนติเมตร)</label>
+    <input type="number" id="height" placeholder="100 - 250 ซม." min="100" max="250">
+
+    <!-- ปุ่มกด -->
+    <button onclick="calculateBMI()">คำนวณ</button>
+    <button class="reset" onclick="resetForm()">ล้างค่า</button>
+
+    <!-- พื้นที่แสดงผลลัพธ์ -->
+    <div id="result" class="result"></div>
+
+    <!-- ตารางเกณฑ์มาตรฐาน -->
+    <h2>เกณฑ์มาตรฐาน BMI (คนเอเชีย)</h2>
+    <table>
+      <tr>
+        <th>ค่า BMI</th>
+        <th>ระดับ</th>
+      </tr>
+      <tr class="level1">
+        <td>น้อยกว่า 18.5</td>
+        <td>น้ำหนักน้อย / ผอม</td>
+      </tr>
+      <tr class="level2">
+        <td>18.5 – 22.9</td>
+        <td>ปกติ (สุขภาพดี)</td>
+      </tr>
+      <tr class="level3">
+        <td>23.0 – 24.9</td>
+        <td>น้ำหนักเกิน / ท้วม</td>
+      </tr>
+      <tr class="level4">
+        <td>25.0 – 29.9</td>
+        <td>อ้วนระดับ 1</td>
+      </tr>
+      <tr class="level5">
+        <td>30.0 ขึ้นไป</td>
+        <td>อ้วนระดับ 2 (อันตราย)</td>
+      </tr>
+    </table>
+    <p class="note">สูตร: BMI = น้ำหนัก (kg) ÷ ส่วนสูง (m)²</p>
+
+    <!-- ข้อจำกัดการใช้งาน -->
+    <div class="limits">
+      <h3>⚠️ ข้อจำกัดการใช้งาน</h3>
+      <ul>
+        <li>ใช้ได้กับ<b>ผู้ใหญ่อายุ 18 ปีขึ้นไป</b> เท่านั้น</li>
+        <li>เป็นเพียง<b>การคัดกรองเบื้องต้น</b> ไม่ใช่การตรวจหรือวินิจฉัยโรค</li>
+        <li><b>ไม่เหมาะกับเด็กและวัยรุ่น</b> (ต้องใช้กราฟการเจริญเติบโตตามเพศและอายุแทน)</li>
+        <li><b>ไม่เหมาะกับหญิงตั้งครรภ์</b> และหญิงให้นมบุตร</li>
+        <li>อาจคลาดเคลื่อนใน<b>นักกีฬาหรือผู้มีกล้ามเนื้อมาก</b> และ<b>ผู้สูงอายุ</b> เพราะ BMI แยกไขมันกับกล้ามเนื้อไม่ได้</li>
+        <li>หากกังวลเรื่องสุขภาพหรือน้ำหนัก ควร<b>ปรึกษาแพทย์หรือนักโภชนาการ</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- เชื่อมไฟล์คำสั่ง (JavaScript) -->
+  <script src="script.js"></script>
+</body>
+</html>
